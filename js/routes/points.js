@@ -33,7 +33,16 @@ router.post('/addPoint', jsonParser, function(req, res) {
 	var pointData = {
 		_id : new mongoose.Types.ObjectId()
 	};
-	res.status(200).json({ status: 'ok, sorta working!' });
+
+	if (!req.body.deviceId || req.body.deviceId.length == 0) {
+		res.status(400).json({ error: 'Missing required field: tripId'} );
+	} else {
+		pointData.deviceId = req.body.deviceId;
+	}
+	pointData.coordinateLat = req.body.coordinateLat
+	pointData.createdDate = new Date();
+
+	//res.status(200).json({ status: 'ok, sorta working!' });
 	/*
 	if (!req.body.client_load_id || req.body.client_load_id.length < 36) {
 			res.status(400).json({ error: 'Missing required field: client_load_id' });
@@ -111,29 +120,15 @@ router.post('/addPoint', jsonParser, function(req, res) {
 
 	loadData.product4NetGallons = req.body.product4NetGallons;
 	loadData.product4GrossGallons = req.body.product4GrossGallons;
-
-	DeliveredLoad.create(loadData, function (error, newLoad) {
+	*/
+	Point.create(pointData, function (error, newPoint) {
 		if (error && error.code != 11000) {
 			res.json(error);
 		} else {
-			Trip.findOne({'_id': mongoose.Types.ObjectId(req.body.tripId)})
-				.exec(function (err, trip) {
-				if (trip) {
-					trip.deliveredLoads.addToSet(newLoad.id);
-					trip.save(function (err) {
-    				if (err) {
-							res.status(400).json({ error: 'Error linking load to trip.' + req.body.tripId });
-						} else {
-							res.json(newLoad);
-						}
-  				});
-				} else {
-					res.status(400).json({ error: 'Trip Not Found.' + req.body.tripId });
-				}
-			});
+			res.status(200).json({ status: 'ok, sorta working!' });
 		}
 	});
-	*/
+
 });
 
 module.exports = router;
