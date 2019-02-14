@@ -41,7 +41,7 @@ router.post('/addPoint', jsonParser, function(req, res) {
 	}
 	pointData.coordinateLat = req.body.coordinateLat
 	pointData.coordinateLong = req.body.coordinateLong
-	pointData.createdDate = new Date();
+	pointData.createDate = new Date();
 
 	//res.status(200).json({ status: 'ok, sorta working!' });
 
