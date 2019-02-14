@@ -35,11 +35,12 @@ router.post('/addPoint', jsonParser, function(req, res) {
 	};
 
 	if (!req.body.deviceId || req.body.deviceId.length == 0) {
-		res.status(400).json({ error: 'Missing required field: tripId'} );
+		res.status(400).json({ error: 'Missing required field: deviceId'} );
 	} else {
 		pointData.deviceId = req.body.deviceId;
 	}
 	pointData.coordinateLat = req.body.coordinateLat
+	pointData.coordinateLong = req.body.coordinateLong
 	pointData.createdDate = new Date();
 
 	//res.status(200).json({ status: 'ok, sorta working!' });
