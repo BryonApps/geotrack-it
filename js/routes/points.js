@@ -28,7 +28,7 @@ router.get('/', function(req, res) {
 
 // register a load...
 router.post('/addPoint', jsonParser, function(req, res) {
-	console.log("In addPoint, req: ", req );
+	console.log("In addPoint" );
 
 	var pointData = {
 		_id : new mongoose.Types.ObjectId()
