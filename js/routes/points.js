@@ -33,6 +33,7 @@ router.post('/addPoint', jsonParser, function(req, res) {
 	var pointData = {
 		_id : new mongoose.Types.ObjectId()
 	};
+	res.status(200).json({ status: 'ok, sorta working!' });
 	/*
 	if (!req.body.client_load_id || req.body.client_load_id.length < 36) {
 			res.status(400).json({ error: 'Missing required field: client_load_id' });
