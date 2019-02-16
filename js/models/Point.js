@@ -12,7 +12,7 @@ var PointSchema = new mongoose.Schema({
     eventName: {
       type: String
     },
-    data: {
+    dataStuff: {
       type: String
     },
     coreid: {
