@@ -43,6 +43,12 @@ router.post('/addPoint', jsonParser, function(req, res) {
 	console.log('Here is the data: ', req.body.data)
 	pointData.dataString = req.body.data
 
+	var latLong = pointData.dataString.split(',')
+	if (latLong != null && latLong.length == 2) {
+		pointData.coordinateLat = latLong[0]
+		pointData.coordinateLong = latLong[1]
+	}
+
 	pointData.eventName = req.body.event
 	pointData.coreid = req.body.coreid
 	pointData.publishDate = req.body.published_at
