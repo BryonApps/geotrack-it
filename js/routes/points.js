@@ -18,7 +18,7 @@ var uuidv4 = uuid();
 uuidv4 = uuidv4.toUpperCase();
 
 router.get('/', function(req, res) {
-  Point.find({}, function(err, points) {
+  Point.find({}).sort({publishDate: 'desc'}, function(err, points) {
     var response = {
 			results: null
 		}
