@@ -11,7 +11,7 @@ var PointSchema = new mongoose.Schema({
     },
     eventName: {
       type: String
-    }
+    },
     data: {
       type: String
     },
