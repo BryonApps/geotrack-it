@@ -19,13 +19,19 @@ uuidv4 = uuidv4.toUpperCase();
 
 router.get('/', function(req, res) {
   Point.find({}, function(err, points) {
-    var pointMap = {};
+    var response = {
+			results: null
+		}
+		var pointResults = []
+
 
     points.forEach(function(point) {
-      pointMap[point._id] = point;
+      pointResults.push(point);
     });
 
-    res.send(pointMap);
+		response.results = pointResults
+
+    res.send(response);
   });
 });
 
