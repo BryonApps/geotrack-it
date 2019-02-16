@@ -20,16 +20,15 @@ uuidv4 = uuidv4.toUpperCase();
 router.get('/', function(req, res) {
   Point.find({}, null, {sort: {publishDate: -1}}, function(err, points) {
     var response = {
-			results: null
+			points: null
 		}
 		var pointResults = []
-
 
     points.forEach(function(point) {
       pointResults.push(point);
     });
 
-		response.results = pointResults
+		response.points = pointResults
 
     res.send(response);
   });
