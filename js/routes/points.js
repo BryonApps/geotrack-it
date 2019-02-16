@@ -18,15 +18,18 @@ var uuidv4 = uuid();
 uuidv4 = uuidv4.toUpperCase();
 
 router.get('/', function(req, res) {
-	var today = new Date();
-	//today.setDate(today.getDate() - 1);
-	//today.setHours(5,0,0,0);
+  Point.find({}, function(err, points) {
+    var pointMap = {};
 
-	console.log("Today        : " + today);
-  	res.json({"today" : today});
+    points.forEach(function(point) {
+      pointMap[point._id] = point;
+    });
+
+    res.send(pointMap);
+  });
 });
 
-// register a load...
+// register a point to the database...
 router.post('/addPoint', jsonParser, function(req, res) {
 	console.log("In addPoint" );
 
