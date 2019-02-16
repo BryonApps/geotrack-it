@@ -6,6 +6,18 @@ var PointSchema = new mongoose.Schema({
     createDate: {
       type:  Date
     },
+    publishDate: {
+      type:  Date
+    },
+    eventName: {
+      type: String
+    }
+    data: {
+      type: String
+    },
+    coreid: {
+      type: String
+    },
     coordinateLat: {
       type:  Number
     },

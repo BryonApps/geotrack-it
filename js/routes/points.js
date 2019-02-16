@@ -34,13 +34,17 @@ router.post('/addPoint', jsonParser, function(req, res) {
 		_id : new mongoose.Types.ObjectId()
 	};
 
-	if (!req.body.deviceId || req.body.deviceId.length == 0) {
+	/*if (!req.body.deviceId || req.body.deviceId.length == 0) {
 		res.status(400).json({ error: 'Missing required field: deviceId'} );
 	} else {
 		pointData.deviceId = req.body.deviceId;
 	}
-	pointData.coordinateLat = req.body.coordinateLat
-	pointData.coordinateLong = req.body.coordinateLong
+	*/
+	console.log('Here is the data: ', req.body.data)
+	pointData.data = req.body.data
+	pointData.eventName = req.body.event
+	pointData.coreid = req.body.coreid
+	pointData.publishDate = req.body.published_at
 	pointData.createDate = new Date();
 
 	//res.status(200).json({ status: 'ok, sorta working!' });
