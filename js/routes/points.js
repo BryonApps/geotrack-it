@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
 
 		response.points = pointResults
 
-    res.send(response);
+    res.send(pointResults);
   });
 });
 
