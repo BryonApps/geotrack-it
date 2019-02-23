@@ -26,11 +26,11 @@ router.get('/', function(req, res) {
 
     points.forEach(function(point) {
 			var pointResult = {}
-			pointResult.publishDate = new Date(point.publishDate)
+			pointResult.publishDate = point.createDate
 			pointResult.coordinateLat = point.coordinateLat
 			pointResult.coordinateLong = point.coordinateLong
 			pointResult.eventName = point.eventName
-			
+
       pointResults.push(pointResult);
     });
 
