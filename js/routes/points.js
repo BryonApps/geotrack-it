@@ -66,7 +66,7 @@ router.post('/addPoint', jsonParser, function(req, res) {
 	pointData.eventName = req.body.event
 	pointData.coreid = req.body.coreid
 	pointData.publishDate = req.body.published_at
-	pointData.createDate = new Date("<YYYY-mm-ddTHH:MM:ssZ>");
+	pointData.createDate = new Date();
 
 	//res.status(200).json({ status: 'ok, sorta working!' });
 
