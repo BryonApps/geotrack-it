@@ -26,7 +26,7 @@ router.get('/', function(req, res) {
 
     points.forEach(function(point) {
 			var pointResult = {}
-			pointResult.publishDate = new Date(point.createDate)
+			pointResult.publishDate = point.createDate
 			pointResult.coordinateLat = point.coordinateLat
 			pointResult.coordinateLong = point.coordinateLong
 			pointResult.eventName = point.eventName
@@ -66,7 +66,7 @@ router.post('/addPoint', jsonParser, function(req, res) {
 	pointData.eventName = req.body.event
 	pointData.coreid = req.body.coreid
 	pointData.publishDate = req.body.published_at
-	pointData.createDate = new Date();
+	pointData.createDate = new Date("<YYYY-mm-ddTHH:MM:ssZ>");
 
 	//res.status(200).json({ status: 'ok, sorta working!' });
 
